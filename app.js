@@ -49,6 +49,18 @@ const gameBoard = (function() {
                         
                     }
                 }
+                let tie_checker = 0;
+                for (l=0; l<_board.length; l++) {
+                    if (_board[l] != " ")
+                    {
+                        tie_checker++;
+                        console.log(tie_checker);
+                        if (tie_checker == 9)
+                        {
+                            document.getElementById("header").innerHTML = `Tie!`;
+                        }
+                    }
+                }
                 
                 
             }
@@ -91,5 +103,24 @@ const gameController = (() => {
         nextPlayer
     }
 
+
+})();
+
+
+const clearBoard = (() => {
+    clearSquare = (boardArray) => {
+        let boardSquares = document.getElementsByClassName("square");
+        for(let i=0; i<boardSquares.length; i++) {
+            boardSquares[i].innerHTML = " ";
+        }
+        for (let n=0; n<boardArray.length; n++) {
+            boardArray[n] = " ";
+        }
+        document.getElementById("player1").style.backgroundColor = "rgb(153, 153, 211, 0.5)";
+    }
+
+    return {
+        clearBoard
+    }
 
 })();
