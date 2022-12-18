@@ -12,16 +12,16 @@ const gameBoard = (function() {
         [2, 4, 6]
     ]
     let boardSquares = document.getElementsByClassName("square");
-    document.getElementById("player1").style.backgroundColor = "rgb(153, 153, 211, 0.5)";
+    document.getElementById("player1").style.backgroundColor = "rgba(255, 150, 64, 0.5)";
     for(let i=0; i<boardSquares.length; i++) {
         boardSquares[i].addEventListener("click", () => {
             if (_board[i] == " ") {
                 if (gameController.currentPlayer.marker == "X") {
-                    document.getElementById("player2").style.backgroundColor = "rgb(153, 153, 211, 0.5)";
+                    document.getElementById("player2").style.backgroundColor = "rgba(255, 150, 64, 0.5)";
                     document.getElementById("player1").style.backgroundColor = "beige"
                 }
                 else {
-                    document.getElementById("player1").style.backgroundColor = "rgb(153, 153, 211, 0.5)";
+                    document.getElementById("player1").style.backgroundColor = "rgba(255, 150, 64, 0.5)";
                     document.getElementById("player2").style.backgroundColor = "beige"
                 }
                 _board[i] = gameController.currentPlayer.marker;
@@ -36,6 +36,9 @@ const gameBoard = (function() {
                                 if (x == 3) {
                                     winner = "Player 1";
                                     document.getElementById("header").innerHTML = `${winner} wins!`;
+                                    convert();
+                                    document.getElementById("player2").style.backgroundColor = "beige";
+                                    return;
                                 }
                             }
                         if (_board[a] == "O")
@@ -44,6 +47,9 @@ const gameBoard = (function() {
                                 if (o == 3) {
                                     winner = "Player 2";
                                     document.getElementById("header").innerHTML = `${winner} wins!`;
+                                    convert();
+                                    document.getElementById("player1").style.backgroundColor = "beige";
+                                    return;
                                 }
                             }
                         
@@ -121,7 +127,7 @@ const clearBoard = (() => {
         for (let n=0; n<boardArray.length; n++) {
             boardArray[n] = " ";
         }
-        document.getElementById("player1").style.backgroundColor = "rgb(153, 153, 211, 0.5)";
+        document.getElementById("player1").style.backgroundColor = "rgba(255, 150, 64, 0.5)";
         document.getElementById("player2").style.backgroundColor = "beige";
         document.getElementById("header").innerHTML =  "May the best player win!";
 
