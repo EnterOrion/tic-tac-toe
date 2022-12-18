@@ -14,8 +14,8 @@ body {
 .gameboard {
   height: 500px;
   width: 500px;
-  background-color: rgba(255, 197, 89, 0.904);
-  border: 3px solid rgb(245, 65, 65);
+  background-color: rgba(255, 205, 112, 0.904);
+  border: 2px solid rgb(160, 0, 0);
   border-radius: 2%;
   display: grid;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid rgb(245, 65, 65);
+  border: 2px solid rgb(160, 0, 0);
   border-radius: 1%;
 }
 
