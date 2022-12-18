@@ -67,10 +67,10 @@ const gameBoard = (function() {
                     }
                 }
                 
-                
+                convert();
+                gameController.nextPlayer();    
             }
-            convert();
-            gameController.nextPlayer();
+            
             
         })
     }
