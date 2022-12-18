@@ -54,7 +54,6 @@ const gameBoard = (function() {
                     if (_board[l] != " ")
                     {
                         tie_checker++;
-                        console.log(tie_checker);
                         if (tie_checker == 9)
                         {
                             document.getElementById("header").innerHTML = `Tie!`;
@@ -75,6 +74,13 @@ const gameBoard = (function() {
             boardSquares[i].innerHTML = _board[i];
           }
     }
+
+    let resetButton = document.getElementById("reset");
+    resetButton.addEventListener("click", () => {
+        clearBoard.clearSquare(_board);
+        gameController.currentPlayer.marker = 'X';
+    })
+
 
 })();
 
@@ -106,7 +112,6 @@ const gameController = (() => {
 
 })();
 
-
 const clearBoard = (() => {
     clearSquare = (boardArray) => {
         let boardSquares = document.getElementsByClassName("square");
@@ -117,10 +122,13 @@ const clearBoard = (() => {
             boardArray[n] = " ";
         }
         document.getElementById("player1").style.backgroundColor = "rgb(153, 153, 211, 0.5)";
+        document.getElementById("player2").style.backgroundColor = "beige";
+        document.getElementById("header").innerHTML =  "May the best player win!";
+
     }
 
     return {
-        clearBoard
+        clearSquare
     }
 
 })();
