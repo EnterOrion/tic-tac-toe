@@ -4,11 +4,11 @@ html {
 }
 
 body {
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .gameboard {
@@ -18,8 +18,7 @@ body {
   border: 1px solid rgb(160, 0, 0);
   border-radius: 2%;
   display: grid;
-	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
 .square {
@@ -30,31 +29,32 @@ body {
   border-radius: 2%;
 }
 
-
-#player1o:hover, #player1x:hover, #player2x:hover, #player2o:hover {
+#player1o:hover,
+#player1x:hover,
+#player2x:hover,
+#player2o:hover {
   color: lightblue;
 }
 
-#player1, #player2 {
+#player1,
+#player2 {
   display: flex;
   flex-direction: column;
   font-size: 30px;
   height: 200px;
-
 }
-
 
 #player-title {
   text-decoration: underline;
 }
-
 
 .player-gameboard {
   display: flex;
   gap: 20px;
 }
 
-#player1marker, #player2marker {
+#player1marker,
+#player2marker {
   text-decoration: none;
   text-align: center;
 }
