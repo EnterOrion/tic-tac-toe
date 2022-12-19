@@ -68,7 +68,12 @@ const gameBoard = (function() {
                 }
                 
                 convert();
-                gameController.nextPlayer();    
+                if (gameController.currentPlayer.marker == "X") {
+                    gameController.currentPlayer.marker = "O";
+                }
+                else {
+                    gameController.currentPlayer.marker = "X";
+                }
             }
             
             
@@ -84,7 +89,7 @@ const gameBoard = (function() {
     let resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", () => {
         clearBoard.clearSquare(_board);
-        gameController.currentPlayer.marker = 'X';
+        
     })
 
 
@@ -100,19 +105,9 @@ const gameController = (() => {
     const player2 = Player('Player 2', 'O');
     
     let currentPlayer = player1;
-   
-    function nextPlayer() {
-        if (this.currentPlayer == player1) {
-            this.currentPlayer = player2;
-        }
-        else {
-            this.currentPlayer = player1;
-        }
-    }
 
     return {
-        currentPlayer,
-        nextPlayer
+        currentPlayer
     }
 
 
@@ -130,6 +125,7 @@ const clearBoard = (() => {
         document.getElementById("player1").style.backgroundColor = "rgba(255, 150, 64, 0.5)";
         document.getElementById("player2").style.backgroundColor = "beige";
         document.getElementById("header").innerHTML =  "May the best player win!";
+        gameController.currentPlayer.marker = 'X';
 
     }
 
